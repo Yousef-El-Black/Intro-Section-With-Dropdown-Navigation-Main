@@ -1,0 +1,165 @@
+.overlay {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  transition: 0.5s;
+  &.active {
+    opacity: 1;
+  }
+}
+
+header {
+  height: 80px;
+  > ul {
+    > li {
+      > a {
+        text-decoration: none;
+        color: $mediumGray;
+        transition: 0.3s;
+        font-size: 16px;
+        > img {
+          &:nth-child(1) {
+            display: block;
+          }
+          &:nth-child(2) {
+            display: none;
+          }
+        }
+        > span {
+          display: inline-block;
+          padding: 0 5px 0 0;
+        }
+        &:hover {
+          color: $almostBlack;
+        }
+        &.active {
+          color: $almostBlack;
+          & + ul {
+            // display: block;
+            opacity: 1;
+            // height: auto;
+            left: 50%;
+            transform: translateX(-50%);
+            li {
+              a {
+                img {
+                  width: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+      > ul {
+        top: calc(100% + 10px);
+        opacity: 0;
+        // height: 0;
+        width: 150px;
+        transition: 1s;
+        > li {
+          > a {
+            text-decoration: none;
+            img {
+              width: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .btns {
+    .btn {
+      color: $mediumGray;
+      transition: 0.3s;
+      border-radius: $borderRadius;
+      &:hover {
+        color: $almostBlack;
+      }
+      &:nth-child(2) {
+        border: 1px solid $mediumGray;
+        &:hover {
+          border-color: $almostBlack;
+        }
+      }
+    }
+  }
+  .menu-shape {
+    cursor: pointer;
+  }
+}
+
+.megamenu {
+  z-index: 999;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background-color: #fff;
+  margin-right: -200px;
+  @include prefixer(box-shadow, none);
+  transition: 0.5s;
+  &.active {
+    margin-right: 0px;
+    @include prefixer(box-shadow, 0px 0px 10px 2px rgb(0, 0, 0, 0.5));
+  }
+  > .shape {
+    cursor: pointer;
+  }
+  > ul {
+    > li {
+      > a {
+        text-decoration: none;
+        color: $mediumGray;
+        .arrow-up {
+          display: none;
+        }
+        .arrow-down {
+          display: block;
+        }
+        &.active {
+          .arrow-up {
+            display: block;
+          }
+          .arrow-down {
+            display: none;
+          }
+        }
+      }
+      > ul {
+        height: 0;
+        overflow: hidden;
+        transition: 0.3s;
+        &.active {
+          height: 108px;
+        }
+        li {
+          a {
+            text-decoration: none;
+            color: $mediumGray;
+          }
+        }
+      }
+    }
+  }
+  .btns {
+    .btn {
+      color: $mediumGray;
+      transition: 0.3s;
+      border-radius: $borderRadius;
+      &:hover {
+        color: $almostBlack;
+      }
+      &:nth-child(2) {
+        border: 1px solid $mediumGray;
+        &:hover {
+          border-color: $almostBlack;
+        }
+      }
+    }
+  }
+}

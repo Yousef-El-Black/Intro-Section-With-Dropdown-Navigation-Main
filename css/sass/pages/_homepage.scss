@@ -1,0 +1,33 @@
+body {
+  background-color: $almostWhite;
+  font-weight: $fontM;
+  font-family: $font;
+  font-size: $fontSize;
+}
+
+.landing {
+  min-height: calc(100vh - 80px);
+  .text {
+    h1 {
+      font-size: 75px;
+      font-weight: 700;
+      color: $almostBlack;
+    }
+    p {
+      line-height: 2;
+      color: $mediumGray;
+    }
+    .btn {
+      color: $almostWhite;
+      background-color: $almostBlack;
+      border: 1px solid $almostWhite;
+      font-weight: 700;
+      border-radius: $borderRadius;
+      &:hover {
+        background-color: $almostWhite;
+        color: $almostBlack;
+        border-color: $almostBlack;
+      }
+    }
+  }
+}
